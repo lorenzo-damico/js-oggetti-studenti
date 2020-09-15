@@ -9,66 +9,86 @@
 
 $(document).ready(function () {
 
-// PUNTO 1
-// Creo un oggetto che descrive uno studente con 3 proprietà : nome, cognome, età.
-var studente = {
-  "nome": "Lorenzo",
-  "cognome": "D'Amico",
-  "età": 26
-};
+  // PUNTO 1
+  // Creo un oggetto che descrive uno studente con 3 proprietà : nome, cognome, età.
+  var studente = {
+    "nome": "Lorenzo",
+    "cognome": "D'Amico",
+    "età": 26
+  };
 
-console.log(studente);
+  console.log(studente);
 
-// Stampo la lista delle proprietà a schermo attraverso il ciclo for in.
-for (var key in studente) {
-  console.log(studente[key]);
-}
-
-
-// PUNTO 2
-// Creo un array di oggetti di studenti.
-var studenti = [
-  {
-    "nome": "Alessandro",
-    "cognome": "Manzoni"
-  },
-  {
-    "nome": "Giacomo",
-    "cognome": "Leopardi"
-  },
-  {
-    "nome": "Giovanni",
-    "cognome": "Pascoli"
+  // Stampo la lista delle proprietà a schermo attraverso il ciclo for in.
+  for (var key in studente) {
+    console.log(studente[key]);
   }
-];
 
-console.log(studenti);
 
-// Stampo nome e cognome di tutti gli studenti eseguendo un ciclo for sull'array con dentro un ciclo for in sugli oggetti.
-for (var i = 0; i < studenti.length; i++) {
-  for (var key in studenti[i]) {
-    console.log(studenti[i][key]);
+  // PUNTO 2
+  // Creo un array di oggetti di studenti.
+  var studenti = [
+    {
+      "nome": "Alessandro",
+      "cognome": "Manzoni"
+    },
+    {
+      "nome": "Giacomo",
+      "cognome": "Leopardi"
+    },
+    {
+      "nome": "Giovanni",
+      "cognome": "Pascoli"
+    }
+  ];
+
+  console.log(studenti);
+
+  // Stampo nome e cognome di tutti gli studenti eseguendo un ciclo for sull'array con dentro un ciclo for in sugli oggetti.
+  for (var i = 0; i < studenti.length; i++) {
+    for (var key in studenti[i]) {
+      console.log(studenti[i][key]);
+    }
   }
-}
 
-// PUNTO 3
-// Chiedo all'utente con 3 prompt di inserire nome cognome ed età di un nuovo studente.
-var nomeUtente = prompt("Inserisci il tuo nome");
-var cognomeUtente = prompt("Inserisci il tuo cognome");
-var etaUtente = parseInt(prompt("Inserisci la tua età"));
 
-// Creo un oggetto per il nuovo studente.
-var nuovoStudente = {
-  "nome": nomeUtente,
-  "cognome": cognomeUtente,
-  "età": etaUtente
-};
+  // PUNTO BONUS
+  // Stampo i risultati in html usando handlebars.
+  var source = document.getElementById("entry-template").innerHTML;
+  var template = Handlebars.compile(source);
 
-console.log(nuovoStudente);
+  var htmlStudente = template(studente);
+  $("#primo").append(htmlStudente);
 
-// Aggiungo l'oggetto nuovoStudente all'array degli studenti tramite un push.
-studenti.push(nuovoStudente);
+  for (var i = 0; i < studenti.length; i++) {
+    var htmlStudenti = template(studenti[i]);
+    $("#secondo").append(htmlStudenti);
+  }
 
-console.log(studenti);
+  // PUNTO 3
+  // Chiedo all'utente con 3 prompt di inserire nome cognome ed età di un nuovo studente.
+  var nomeUtente = prompt("Inserisci il tuo nome");
+  var cognomeUtente = prompt("Inserisci il tuo cognome");
+  var etaUtente = parseInt(prompt("Inserisci la tua età"));
+
+  // Creo un oggetto per il nuovo studente.
+  var nuovoStudente = {
+    "nome": nomeUtente,
+    "cognome": cognomeUtente,
+    "età": etaUtente
+  };
+
+  console.log(nuovoStudente);
+
+  // Aggiungo l'oggetto nuovoStudente all'array degli studenti tramite un push.
+  studenti.push(nuovoStudente);
+
+  console.log(studenti);
+
+  // Stampo in html l'array studenti aggiornato con handlebars.
+  for (var i = 0; i < studenti.length; i++) {
+    var htmlStudenti = template(studenti[i]);
+    $("#terzo").append(htmlStudenti);
+  }
 
 });
