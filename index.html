@@ -9,34 +9,40 @@
     <title>Esercizio oggetti studenti</title>
   </head>
   <body>
-    <div id="primo">
+    <div >
       <h2>Punto 1</h2>
       <p>Creare un oggetto che descriva uno studente con le seguenti proprietà: nome, cognome e età.</p>
+      <ul id="primo">
 
+      </ul>
     </div>
 
-    <div id="secondo">
+    <div>
       <h2>Punto 2</h2>
       <p>Creare un array di oggetti di studenti e stampare per ognuno nome e cognome.</p>
+      <ul id="secondo">
 
+      </ul>
     </div>
 
-    <div id="terzo">
+    <div>
       <h2>Punto 3</h2>
       <p>Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.</p>
+      <ul id="terzo">
 
+      </ul>
     </div>
 
 
 
 
-    <script id="entry-template" type="text/x-handlebars-template">
+    <script id="student-template" type="text/x-handlebars-template">
 
-      <ul>
-        <li>{{nome}}</li>
-        <li>{{cognome}}</li>
-        <li>{{età}}</li>
-      </ul>
+      <li>
+        <div><strong>Nome:</strong> {{nome}}</div>
+        <div><strong>Cognome:</strong> {{cognome}}</div>
+        <div><strong>Età:</strong> {{eta}}</div>
+      </li>
 
     </script>
 

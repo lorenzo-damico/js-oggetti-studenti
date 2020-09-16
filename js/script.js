@@ -14,7 +14,7 @@ $(document).ready(function () {
   var studente = {
     "nome": "Lorenzo",
     "cognome": "D'Amico",
-    "età": 26
+    "eta": 26
   };
 
   console.log(studente);
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
   // PUNTO BONUS
   // Stampo i risultati in html usando handlebars.
-  var source = document.getElementById("entry-template").innerHTML;
+  var source = $("#student-template").html();
   var template = Handlebars.compile(source);
 
   var htmlStudente = template(studente);
@@ -75,7 +75,7 @@ $(document).ready(function () {
   var nuovoStudente = {
     "nome": nomeUtente,
     "cognome": cognomeUtente,
-    "età": etaUtente
+    "eta": etaUtente
   };
 
   console.log(nuovoStudente);
